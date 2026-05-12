@@ -13,13 +13,12 @@ interface HistoryQuery {
 
 function requireApiKey(config: AppConfig) {
   return async (request: FastifyRequest, reply: FastifyReply) => {
-    if (!config.apiKey) return;
     const incomingKey =
       (request.headers['x-api-key'] as string | undefined) ??
       (request.query as any).apiKey;
 
     if (!incomingKey || incomingKey !== config.apiKey) {
-      reply.status(401).send({ error: 'Unauthorized' });
+      return reply.status(401).send({ error: 'Unauthorized' });
     }
   };
 }
