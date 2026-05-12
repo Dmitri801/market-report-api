@@ -7,7 +7,7 @@ const externalReportUrl = process.env.EXTERNAL_REPORT_URL ?? process.env.REPORT_
 
 export const appConfig = {
   port: Number(process.env.PORT) || 4000,
-  host: process.env.HOST ?? '"0.0.0.0',
+  host: process.env.HOST ?? '0.0.0.0',
   apiKey: process.env.API_KEY ?? '',
   databaseUrl,
   externalReportUrl,
